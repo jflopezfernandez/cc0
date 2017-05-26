@@ -62,6 +62,23 @@ void matrix(int n);
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ENDMATRIX
 
 /** TODO: Implement equation as a linked list? */
+struct _variable {
+	char representation;
+};
+
+void printVariable(struct _variable *v);
+
+union _element {
+	struct _number n;
+	struct _matrix m;
+};
+
+struct _elementNode {
+	struct _elementNode *next;
+	struct _elementNode *previous;
+	
+	
+};
 
 struct _number getGCD(struct _number *n1, struct _number *n2);
 
@@ -71,23 +88,19 @@ struct _number getGCD(struct _number *n1, struct _number *n2);
 
 int main()
 {
-	struct _number n1;
-	n1.realType = WHOLE;
-	n1.real.whole = 1071;
-	
-	struct _number n2;
-	n2.realType = WHOLE;
-	n2.real.whole = 462;
-	
-	struct _number gcd = getGCD(&n1,&n2);
-	
-	printf("gcd(%i,%i)=%i\n",n1.real.whole,n2.real.whole,gcd.real.whole);
+	struct _variable x;
+	x.representation = 'x';
+	printVariable(&x);
 	
 	return EXIT_SUCCESS;
 }
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ END PROGRAM
 
+
+void printVariable(struct _variable *v) {
+	printf("%c", v->representation);
+}
 
 void printFraction(struct _fraction *f) {
 	if (f->n == 0) {

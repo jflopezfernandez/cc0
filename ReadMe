@@ -1,3 +1,3 @@
 cc
 
-This is a side project of mine that I hope will eventually morph into a robust, multiple-precision numerical process library. I'm mostly building it because I enjoy the process, but I legitimately hope eventually it serves as a legitimate and free option for someone. Right now I'm just working on setting up the necessary data structures. My goal is for this project to natively support fractions, complex numbers, and symbolic constants.
+This is a side project of mine that I hope will eventually morph into a robust, multiple-precision numerical process library. I'm mostly building it because I enjoy the process, but I hope eventually it serves as a legitimate and free option for someone. Right now I'm just working on setting up the necessary data structures. My goal is for this project to natively support fractions, complex numbers, and symbolic constants.
