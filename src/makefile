@@ -1,9 +1,9 @@
-CC := gcc
-CFLAGS :=-g -Wall -Wextra
+CC 		:= gcc
+CFLAGS 	:=-g -Wall -Wextra
 PROGRAM :=test
 
-SRCS := $(wildcard *.c)
-OBJS := $(patsubst %.c,%.o,$(wildcard *.c))
+SRCS 	:= $(wildcard *.c)
+OBJS 	:= $(patsubst %.c,%.o,$(wildcard *.c))
 
 
 $(PROGRAM):$(OBJS)
