@@ -2,9 +2,6 @@
 #define _MAIN_H
 
 
-#define DIMENSION 20
-
-
 /** C Standard Library */
 #include <stdio.h>
 #include <stdlib.h>
