@@ -2,8 +2,11 @@
 #include "includes\Main.h"
 
 
-#define DIMENSION 10
-#define RANGE 10
+#define DIMENSION 	20
+#define RANGE 		10
+
+
+int getGCD(int m, int n);
 
 
 struct _number {
@@ -11,6 +14,8 @@ struct _number {
 	int den;
 };
 
+struct _number newNumber(int a, int b);
+void simplify(struct _number *n);
 void printNumber(struct _number *n);
 
 struct _matrix {
@@ -29,16 +34,58 @@ int main()
 	initializeProgram();
 	/** Start Program */
 	
-	struct _matrix matrix;
-	setRandMatrix(&matrix);
-	printMatrix(&matrix);
+	for (int i = 0; i < DIMENSION; ++i) {
+		for (int j = 0; j < DIMENSION; ++j) {
+			struct _number n = newNumber(i,j);
+			printNumber(&n);
+			printf("\n");
+		}
+	}
 	
 	
 	return EXIT_SUCCESS;
 }
 
 
+int getGCD(int m, int n) {
+	int r = m % n;
+	
+	while (r != 0) {
+		m = n;
+		n = r;
+		
+		r = m % n;
+	}
+	
+	return n;
+}
+
+
+struct _number newNumber(int a, int b) {
+	struct _number newNumber;
+	
+	newNumber.num = a;
+	newNumber.den = b;
+	
+	simplify(&newNumber);
+	
+	return newNumber;
+}
+
+
+void simplify(struct _number *n) {
+	int gcd = getGCD(n->num, n->den);
+	
+	if (gcd > 1) {
+		n->num /= gcd;
+		n->den /= gcd;
+	}
+}
+
+
 void printNumber(struct _number *n) {
+	//simplify(n);
+	
 	if (n->den == 0) {
 		printf("  NaN ");
 	} else {
