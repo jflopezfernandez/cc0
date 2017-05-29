@@ -29,21 +29,65 @@ void setRandMatrix(struct _matrix *m);
 void printMatrix(struct _matrix *m);
 
 
+/** Array */
+int* createArray(int n);
+void setArray(int *a, int n);
+void sortBubbleSort(int *a, int n);
+void printArray(int *a, int n);
+
+
 int main()
 {
 	initializeProgram();
 	/** Start Program */
 	
-	for (int i = 0; i < DIMENSION; ++i) {
-		for (int j = 0; j < DIMENSION; ++j) {
-			struct _number n = newNumber(i,j);
-			printNumber(&n);
-			printf("\n");
-		}
-	}
+	int arrSize;
+	printf("Please enter array size: ");
+	scanf("%i", &arrSize);
+	
+	int *arr = createArray(arrSize);
+	setArray(arr,arrSize);
+	sortBubbleSort(arr,arrSize);
+	printArray(arr,arrSize);
 	
 	
 	return EXIT_SUCCESS;
+}
+
+
+int* createArray(int n) {
+	int *newArray = (int *) malloc(sizeof(int) * n);
+	
+	return newArray;
+}
+
+
+void setArray(int *a, int n) {
+	for (int i = 0; i < n; ++i) {
+		scanf("%i", &(a[i]));
+	}
+}
+
+
+void sortBubbleSort(int *a, int n) {
+	int temp;
+	
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
+			if (a[j] > a[j+1]) {
+				temp = a[j];
+				a[j] = a[j+1];
+				a[j+1] = temp;
+			}
+		}
+	}
+}
+
+
+void printArray(int *a, int n) {
+	for (int i = 0; i < n; ++i) {
+		printf("%i ", a[i]);
+	}
 }
 
 
